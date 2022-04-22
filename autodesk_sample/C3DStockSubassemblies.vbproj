@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <!--Configuration-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6B3F660C-455B-4428-A3F1-FDACB3B30CF6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Subassembly</RootNamespace>
+    <AssemblyName>C3DStockSubassemblies</AssemblyName>
+    <MyType>Windows</MyType>
+    <OptionExplicit>On</OptionExplicit>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetNetVersion>net47</TargetNetVersion>
+    <PlatformArchitecture>64</PlatformArchitecture>
+  </PropertyGroup>
+  <!--Common-->
+  <PropertyGroup>
+    <RootDir>..\..\..\</RootDir>
+    <OMFMgdPath>$(RootDir)3rdParty\OMF\Bin\$(Platform)\$(Configuration)</OMFMgdPath>
+    <AeccMgdPath>$(RootDir)Builddir\$(Platform)\$(Configuration)\bin\</AeccMgdPath>
+  </PropertyGroup>
+  <PropertyGroup>
+	<BaseIntermediateOutputPath>$(RootDir)builddir\$(Platform)\$(Configuration)\obj\$(AssemblyName)\</BaseIntermediateOutputPath>    
+	<BaseIntermediateOutputPath Condition="Exists('$(RootDir)AeccDbMgd.dll')">$(Platform)\$(Configuration)\obj</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
+    <LocalLocaleDir>$(IntermediateOutputPath)$(UICulture)\</LocalLocaleDir>
+    <PdbDir>$(RootDir)builddir\$(Platform)\$(Configuration)\bin</PdbDir>
+  </PropertyGroup>
+  <PropertyGroup>
+	<OutputPath>$(AeccMgdPath)</OutputPath>
+	<OutputPath Condition="Exists('$(RootDir)AeccDbMgd.dll')">$(Platform)\$(Configuration)\bin\</OutputPath>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,40010</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <DefineTrace>true</DefineTrace>
+    <CodeAnalysisRules>-Microsoft.Design#CA1012;-Microsoft.Design#CA2210;-Microsoft.Design#CA1040;-Microsoft.Design#CA1005;-Microsoft.Design#CA1020;-Microsoft.Design#CA1021;-Microsoft.Design#CA1010;-Microsoft.Design#CA1011;-Microsoft.Design#CA1009;-Microsoft.Design#CA1050;-Microsoft.Design#CA1026;-Microsoft.Design#CA1019;-Microsoft.Design#CA1031;-Microsoft.Design#CA1047;-Microsoft.Design#CA1000;-Microsoft.Design#CA1048;-Microsoft.Design#CA1051;-Microsoft.Design#CA1002;-Microsoft.Design#CA1061;-Microsoft.Design#CA1006;-Microsoft.Design#CA1046;-Microsoft.Design#CA1045;-Microsoft.Design#CA1038;-Microsoft.Design#CA1008;-Microsoft.Design#CA1028;-Microsoft.Design#CA1004;-Microsoft.Design#CA1035;-Microsoft.Design#CA1063;-Microsoft.Design#CA1032;-Microsoft.Design#CA1023;-Microsoft.Design#CA1033;-Microsoft.Design#CA1039;-Microsoft.Design#CA1016;-Microsoft.Design#CA1014;-Microsoft.Design#CA1017;-Microsoft.Design#CA1018;-Microsoft.Design#CA1027;-Microsoft.Design#CA1059;-Microsoft.Design#CA1060;-Microsoft.Design#CA1034;-Microsoft.Design#CA1013;-Microsoft.Design#CA1036;-Microsoft.Design#CA1044;-Microsoft.Design#CA1041;-Microsoft.Design#CA1025;-Microsoft.Design#CA1052;-Microsoft.Design#CA1053;-Microsoft.Design#CA1057;-Microsoft.Design#CA1058;-Microsoft.Design#CA1001;-Microsoft.Design#CA1049;-Microsoft.Design#CA1054;-Microsoft.Design#CA1056;-Microsoft.Design#CA1055;-Microsoft.Design#CA1030;-Microsoft.Design#CA1003;-Microsoft.Design#CA1007;-Microsoft.Design#CA1043;-Microsoft.Design#CA1024;-Microsoft.Design#CA1062;-Microsoft.Globalization#CA1301;-Microsoft.Globalization#CA1302;-Microsoft.Globalization#CA1303;-Microsoft.Globalization#CA1306;-Microsoft.Globalization#CA1304;-Microsoft.Globalization#CA1305;-Microsoft.Globalization#CA1300;-Microsoft.Interoperability#CA1403;-Microsoft.Interoperability#CA1406;-Microsoft.Interoperability#CA1413;-Microsoft.Interoperability#CA1402;-Microsoft.Interoperability#CA1407;-Microsoft.Interoperability#CA1404;-Microsoft.Interoperability#CA1410;-Microsoft.Interoperability#CA1411;-Microsoft.Interoperability#CA1405;-Microsoft.Interoperability#CA1409;-Microsoft.Interoperability#CA1415;-Microsoft.Interoperability#CA1408;-Microsoft.Interoperability#CA1414;-Microsoft.Interoperability#CA1412;-Microsoft.Interoperability#CA1400;-Microsoft.Interoperability#CA1401;-Microsoft.Maintainability#CA1502;-Microsoft.Maintainability#CA1501;-Microsoft.Maintainability#CA1500;-Microsoft.Mobility#CA1600;-Microsoft.Mobility#CA1601;-Microsoft.Performance#CA1809;-Microsoft.Performance#CA1811;-Microsoft.Performance#CA1812;-Microsoft.Performance#CA1807;-Microsoft.Performance#CA1813;-Microsoft.Performance#CA1823;-Microsoft.Performance#CA1816;-Microsoft.Performance#CA1817;-Microsoft.Performance#CA1800;-Microsoft.Performance#CA1818;-Microsoft.Performance#CA1805;-Microsoft.Performance#CA1810;-Microsoft.Performance#CA1822;-Microsoft.Performance#CA1815;-Microsoft.Performance#CA1814;-Microsoft.Performance#CA1819;-Microsoft.Performance#CA1804;-Microsoft.Performance#CA1820;-Microsoft.Performance#CA1802;-Microsoft.Portability#CA1901;-Microsoft.Portability#CA1900;-Microsoft.Reliability#CA2000;-Microsoft.Reliability#CA2002;-Microsoft.Reliability#CA2003;-Microsoft.Reliability#CA2004;-Microsoft.Reliability#CA2006;-Microsoft.Security#CA2116;-Microsoft.Security#CA2117;-Microsoft.Security#CA2105;-Microsoft.Security#CA2115;-Microsoft.Security#CA2104;-Microsoft.Security#CA2122;-Microsoft.Security#CA2114;-Microsoft.Security#CA2123;-Microsoft.Security#CA2111;-Microsoft.Security#CA2108;-Microsoft.Security#CA2107;-Microsoft.Security#CA2103;-Microsoft.Security#CA2100;-Microsoft.Security#CA2118;-Microsoft.Security#CA2109;-Microsoft.Security#CA2119;-Microsoft.Security#CA2106;-Microsoft.Security#CA2112;-Microsoft.Security#CA2110;-Microsoft.Security#CA2120;-Microsoft.Security#CA2101;-Microsoft.Security#CA2121;-Microsoft.Security#CA2126;-Microsoft.Security#CA2124;-Microsoft.Usage#CA2209;-Microsoft.Usage#CA2236;-Microsoft.Usage#CA2227;-Microsoft.Usage#CA2213;-Microsoft.Usage#CA2216;-Microsoft.Usage#CA2215;-Microsoft.Usage#CA2214;-Microsoft.Usage#CA2222;-Microsoft.Usage#CA2202;-Microsoft.Usage#CA1806;-Microsoft.Usage#CA2217;-Microsoft.Usage#CA2212;-Microsoft.Usage#CA2219;-Microsoft.Usage#CA2201;-Microsoft.Usage#CA2228;-Microsoft.Usage#CA2221;-Microsoft.Usage#CA2220;-Microsoft.Usage#CA2240;-Microsoft.Usage#CA2229;-Microsoft.Usage#CA2238;-Microsoft.Usage#CA2207;-Microsoft.Usage#CA2208;-Microsoft.Usage#CA2235;-Microsoft.Usage#CA2237;-Microsoft.Usage#CA2232;-Microsoft.Usage#CA2223;-Microsoft.Usage#CA2211;-Microsoft.Usage#CA2233;-Microsoft.Usage#CA2225;-Microsoft.Usage#CA2226;-Microsoft.Usage#CA2231;-Microsoft.Usage#CA2224;-Microsoft.Usage#CA2218;-Microsoft.Usage#CA2234;-Microsoft.Usage#CA2241;-Microsoft.Usage#CA2239;-Microsoft.Usage#CA2200;-Microsoft.Usage#CA1801;-Microsoft.Usage#CA2205;-Microsoft.Usage#CA2230</CodeAnalysisRules>
+  </PropertyGroup>
+  <!--Debug-->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <AeccModVer>d</AeccModVer>
+    <NoWarn>42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!--Release-->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <Optimize>true</Optimize>
+    <AeccModVer />
+    <NoWarn>42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!--x64-->
+  <PropertyGroup Condition=" '$(Platform)' == 'x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <NoWarn>42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!--Reference Path-->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <CodeAnalysisRuleSet>Migrated rules for C3DStockSubassemblies.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <CodeAnalysisRuleSet>Migrated rules for C3DStockSubassemblies.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="AcdbMgd">
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath Condition="Exists('$(RootDir)..\AcdbMgd.dll')">$(RootDir)..\AcdbMgd.dll</HintPath>
+      <HintPath Condition="Exists('$(RootDir)3rdParty\AutoCAD.NET.Model\lib\$(TargetNetVersion)\AcdbMgd.dll')">$(RootDir)3rdParty\AutoCAD.NET.Model\lib\$(TargetNetVersion)\AcdbMgd.dll</HintPath>
+    </Reference>
+    <Reference Include="acmgd">
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+	  <HintPath Condition="Exists('$(RootDir)..\acmgd.dll')">$(RootDir)..\acmgd.dll</HintPath>
+      <HintPath Condition="Exists('$(RootDir)3rdParty\AutoCAD.NET\lib\$(TargetNetVersion)\acmgd.dll')">$(RootDir)3rdParty\AutoCAD.NET\lib\$(TargetNetVersion)\acmgd.dll</HintPath>
+    </Reference>
+    <Reference Include="AecBaseMgd">
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath Condition="Exists('$(RootDir)..\AecBaseMgd.dll')">$(RootDir)..\AecBaseMgd.dll</HintPath>
+      <HintPath Condition="Exists('$(OMFMgdPath)\AecBaseMgd.dll')">$(OMFMgdPath)\AecBaseMgd.dll</HintPath>
+    </Reference>
+    <Reference Include="AeccDbMgd">
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath Condition="Exists('$(RootDir)AeccDbMgd.dll')">$(RootDir)AeccDbMgd.dll</HintPath>
+      <HintPath Condition="Exists('$(AeccMgdPath)\AeccDbMgd.dll')">$(AeccMgdPath)\AeccDbMgd.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Autodesk.AutoCAD.DatabaseServices" />
+    <Import Include="Autodesk.Civil" />
+    <Import Include="Autodesk.Civil.ApplicationServices" />
+    <Import Include="Autodesk.Civil.DatabaseServices" />
+    <Import Include="Autodesk.Civil.Runtime" />
+    <Import Include="Autodesk.Civil.Settings" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Text" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Subassemblies\ConditionalCutOrFill.vb" />
+    <Compile Include="Subassemblies\ConditionalHorizontalTarget.vb" />
+    <Compile Include="Subassemblies\CrownedLane.vb" />
+    <Compile Include="Subassemblies\LaneInsideSuperLayerVaryingWidth.vb" />
+    <Compile Include="Subassemblies\LaneOutsideSuperLayerVaryingWidth.vb" />
+    <Compile Include="Subassemblies\LaneOutsideSuperMultiLayer.vb" />
+    <Compile Include="Subassemblies\DaylightBasin2.vb" />
+    <Compile Include="Subassemblies\DaylightInsideROW.vb" />
+    <Compile Include="Subassemblies\DaylightMultipleSurface.vb" />
+    <Compile Include="Subassemblies\DaylightRockCut.vb" />
+    <Compile Include="Subassemblies\Ditch.vb" />
+    <Compile Include="Subassemblies\LaneInsideSuperMultiLayer.vb" />
+    <Compile Include="Subassemblies\LaneSuperElevationAOR.vb" />
+    <Compile Include="Subassemblies\LinkToLaneMarker.vb" />
+    <Compile Include="Subassemblies\LinkToMarkedPoint2.vb" />
+    <Compile Include="Subassemblies\MedianConstantSlopeWithBarrier.vb" />
+    <Compile Include="Subassemblies\Overlay_Level_1Lane_1Side.vb" />
+    <Compile Include="Subassemblies\Overlay_Level_Crown.vb" />
+    <Compile Include="Subassemblies\Overlay_Mill_1Lane_1Side.vb" />
+    <Compile Include="Subassemblies\Overlay_Mill_Crown.vb" />
+    <Compile Include="Subassemblies\Overlay_Mill_Level_1Lane_1Side.vb" />
+    <Compile Include="Subassemblies\Overlay_Mill_Level_Crown.vb" />
+    <Compile Include="Subassemblies\ShoulderMultiLayer.vb" />
+    <Compile Include="Subassemblies\ShoulderMultilayerVaryingWidth.vb" />
+    <Compile Include="Subassemblies\ShoulderMultiSurface.vb" />
+    <Compile Include="Subassemblies\ShoulderWidening.vb" />
+    <Compile Include="Subassemblies\ShoulderWithSubbaseInterlaced.vb" />
+    <Compile Include="Subassemblies\ShoulderWithSubbaseInterlacedAndDitch.vb" />
+    <Compile Include="Subassemblies\SimpleNoiseBarrier.vb" />
+    <Compile Include="Subassemblies\BasicBarrier.vb" />
+    <Compile Include="Subassemblies\BasicCurb.vb" />
+    <Compile Include="Subassemblies\BasicCurbAndGutter.vb" />
+    <Compile Include="Subassemblies\BasicGuardrail.vb" />
+    <Compile Include="Subassemblies\BasicLane.vb" />
+    <Compile Include="Subassemblies\BasicLaneTransition.vb" />
+    <Compile Include="Subassemblies\BasicShoulder.vb" />
+    <Compile Include="Subassemblies\BasicSideSlopeCutDitch.vb" />
+    <Compile Include="Subassemblies\BasicSidewalk.vb" />
+    <Compile Include="Subassemblies\BridgeBoxGirder1.vb" />
+    <Compile Include="Subassemblies\BridgeBoxGirder2.vb" />
+    <Compile Include="CodesSpecific.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SATemplate.vb" />
+    <Compile Include="Subassemblies\Channel.vb" />
+    <Compile Include="Subassemblies\ChannelParabolicBottom.vb" />
+    <Compile Include="Subassemblies\DaylightBasin.vb" />
+    <Compile Include="Subassemblies\DaylightBench.vb" />
+    <Compile Include="Subassemblies\DaylightGeneral.vb" />
+    <Compile Include="Subassemblies\DaylightMaxOffset.vb" />
+    <Compile Include="Subassemblies\DaylightMaxWidth.vb" />
+    <Compile Include="Subassemblies\DaylightMinOffset.vb" />
+    <Compile Include="Subassemblies\DaylightMinWidth.vb" />
+    <Compile Include="Subassemblies\DaylightMultiIntercept.vb" />
+    <Compile Include="Subassemblies\DaylightStandard.vb" />
+    <Compile Include="Subassemblies\DaylightToOffset.vb" />
+    <Compile Include="Subassemblies\DaylightToROW.vb" />
+    <Compile Include="Subassemblies\GenericPavementStructure.vb" />
+    <Compile Include="Subassemblies\LaneBrokenBack.vb" />
+    <Compile Include="Subassemblies\LaneFromTaperedMedian1.vb" />
+    <Compile Include="Subassemblies\LaneFromTaperedMedian2.vb" />
+    <Compile Include="Subassemblies\LaneInsideSuper.vb" />
+    <Compile Include="Subassemblies\LaneOutsideSuper.vb" />
+    <Compile Include="Subassemblies\LaneOutsideSuperWithWidening.vb" />
+    <Compile Include="Subassemblies\LaneParabolic.vb" />
+    <Compile Include="Subassemblies\LaneTowardCrown.vb" />
+    <Compile Include="Subassemblies\LinkMulti.vb" />
+    <Compile Include="Subassemblies\LinkOffsetAndElevation.vb" />
+    <Compile Include="Subassemblies\LinkOffsetAndSlope.vb" />
+    <Compile Include="Subassemblies\LinkOffsetOnSurface.vb" />
+    <Compile Include="Subassemblies\LinkSlopeAndVerticalDeflection.vb" />
+    <Compile Include="Subassemblies\LinkSlopesBetweenPoints.vb" />
+    <Compile Include="Subassemblies\LinkSlopeToElevation.vb" />
+    <Compile Include="Subassemblies\LinkSlopeToSurface.vb" />
+    <Compile Include="Subassemblies\LinkToMarkedPoint.vb" />
+    <Compile Include="Subassemblies\LinkVertical.vb" />
+    <Compile Include="Subassemblies\LinkWidthAndSlope.vb" />
+    <Compile Include="Subassemblies\LotGrade.vb" />
+    <Compile Include="Subassemblies\MarkPoint.vb" />
+    <Compile Include="Subassemblies\MedianDepressed.vb" />
+    <Compile Include="Subassemblies\MedianDepressedShoulderExt.vb" />
+    <Compile Include="Subassemblies\MedianDepressedShoulderVert.vb" />
+    <Compile Include="Subassemblies\MedianFlushWithBarrier.vb" />
+    <Compile Include="Subassemblies\MedianRaisedConstantSlope.vb" />
+    <Compile Include="Subassemblies\MedianRaisedWithCrown.vb" />
+    <Compile Include="Subassemblies\OverlayBrokenBackBetweenEdges.vb" />
+    <Compile Include="Subassemblies\OverlayBrokenBackOverGutters.vb" />
+    <Compile Include="Subassemblies\OverlayCrownBetweenEdges.vb" />
+    <Compile Include="Subassemblies\OverlayMedianAsymmetrical.vb" />
+    <Compile Include="Subassemblies\OverlayMedianSymmetrical.vb" />
+    <Compile Include="Subassemblies\OverlayMillAndLevel1.vb" />
+    <Compile Include="Subassemblies\OverlayMillAndLevel2.vb" />
+    <Compile Include="Subassemblies\OverlayParabolic.vb" />
+    <Compile Include="Subassemblies\OverlayWidenFromCurb.vb" />
+    <Compile Include="Subassemblies\OverlayWidenMatchSlope1.vb" />
+    <Compile Include="Subassemblies\OverlayWidenMatchSlope2.vb" />
+    <Compile Include="Subassemblies\OverlayWidenWithSuper1.vb" />
+    <Compile Include="Subassemblies\RailSingle.vb" />
+    <Compile Include="Subassemblies\RetainWallTapered.vb" />
+    <Compile Include="Subassemblies\RetainWallTaperedWide.vb" />
+    <Compile Include="Subassemblies\RetainWallTieToDitch.vb" />
+    <Compile Include="Subassemblies\RetainWallToLowSide.vb" />
+    <Compile Include="Subassemblies\RetainWallVertical.vb" />
+    <Compile Include="Subassemblies\ShapeTrapezoidal.vb" />
+    <Compile Include="Subassemblies\ShoulderExtendAll.vb" />
+    <Compile Include="Subassemblies\ShoulderExtendSubbase.vb" />
+    <Compile Include="Subassemblies\ShoulderVerticalSubbase.vb" />
+    <Compile Include="Subassemblies\SideDitch.vb" />
+    <Compile Include="Subassemblies\SideDitchUShape.vb" />
+    <Compile Include="Subassemblies\SideDitchWithLid.vb" />
+    <Compile Include="Subassemblies\StrippingPavement.vb" />
+    <Compile Include="Subassemblies\StrippingTopSoil.vb" />
+    <Compile Include="Subassemblies\TrenchPipe1.vb" />
+    <Compile Include="Subassemblies\TrenchPipe2.vb" />
+    <Compile Include="Subassemblies\TrenchPipe3.vb" />
+    <Compile Include="Subassemblies\TrenchWithPipe.vb" />
+    <Compile Include="Subassemblies\UrbanCurbGutterGeneral.vb" />
+    <Compile Include="Subassemblies\UrbanCurbGutterValley1.vb" />
+    <Compile Include="Subassemblies\UrbanCurbGutterValley2.vb" />
+    <Compile Include="Subassemblies\UrbanCurbGutterValley3.vb" />
+    <Compile Include="Subassemblies\UrbanReplaceCurbGutter1.vb" />
+    <Compile Include="Subassemblies\UrbanReplaceCurbGutter2.vb" />
+    <Compile Include="Subassemblies\UrbanReplaceSidewalk.vb" />
+    <Compile Include="Subassemblies\UrbanSidewalk.vb" />
+    <Compile Include="Utilities.vb" />
+    <Compile Include="VersionInfo.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)C3DStockSubassemblies.dll" "$(ProjectDir)..\" /y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
